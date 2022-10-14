@@ -64,55 +64,53 @@ export const Wireframe = () => {
   const lightDecay = 0;
   const ligthDepth = 10;
   return (
-    <div className="h-1/2 w-screen">
-      <Canvas>
-        {/* Left */}
-        <directionalLight
-          castShadow
-          intensity={lightIntensity}
-          color="#c084fc"
-          position={[-ligthDistance, lightHeight, ligthDepth]}
-        />
-        <directionalLight
-          castShadow
-          intensity={lightIntensity}
-          color="#c084fc"
-          position={[-ligthDistance, -lightHeight, -ligthDepth]}
-        />
+    <Canvas>
+      {/* Left */}
+      <directionalLight
+        castShadow
+        intensity={lightIntensity}
+        color="#c084fc"
+        position={[-ligthDistance, lightHeight, ligthDepth]}
+      />
+      <directionalLight
+        castShadow
+        intensity={lightIntensity}
+        color="#c084fc"
+        position={[-ligthDistance, -lightHeight, -ligthDepth]}
+      />
 
-        {/* Right */}
-        <ambientLight />
-        <directionalLight
-          castShadow
-          intensity={lightIntensity}
-          color="#db2777"
-          position={[ligthDistance, lightHeight, ligthDepth]}
-        />
+      {/* Right */}
+      <ambientLight />
+      <directionalLight
+        castShadow
+        intensity={lightIntensity}
+        color="#db2777"
+        position={[ligthDistance, lightHeight, ligthDepth]}
+      />
 
-        <PresentationControls
-          global={true} // Spin globally or by dragging the model
-          cursor={true} // Whether to toggle cursor style on drag
-          snap={false} // Snap-back to center (can also be a spring config)
-          speed={1} // Speed factor
-          zoom={1} // Zoom factor when half the polar-max is reached
-          rotation={[0, 0, 0]} // Default rotation
-          polar={[-Infinity, Infinity]} // Vertical limits
-          azimuth={[-Infinity, Infinity]} // Horizontal limits
-          config={{ mass: 1, tension: 170, friction: 26 }} // Spring config
-        >
-          <WireT rotation={[0, 0, 0]} scale={0.12} />
-          <rectAreaLight
-            castShadow
-            intensity={100}
-            color="#c084fc"
-            width={10}
-            height={10}
-            position={[-ligthDistance, lightHeight, ligthDistance]}
-            //lookAt={new THREE.Vector3(0,0,0)}
-          />
-        </PresentationControls>
-        {/* <OrbitControls autoRotate={true} enableZoom={false} /> */}
-      </Canvas>
-    </div>
+      <PresentationControls
+        global={true} // Spin globally or by dragging the model
+        cursor={true} // Whether to toggle cursor style on drag
+        snap={false} // Snap-back to center (can also be a spring config)
+        speed={1} // Speed factor
+        zoom={1} // Zoom factor when half the polar-max is reached
+        rotation={[0, 0, 0]} // Default rotation
+        polar={[-Infinity, Infinity]} // Vertical limits
+        azimuth={[-Infinity, Infinity]} // Horizontal limits
+        config={{ mass: 1, tension: 170, friction: 26 }} // Spring config
+      >
+        <WireT rotation={[0, 0, 0]} scale={0.12} />
+        <rectAreaLight
+          castShadow
+          intensity={100}
+          color="#c084fc"
+          width={10}
+          height={10}
+          position={[-ligthDistance, lightHeight, ligthDistance]}
+          //lookAt={new THREE.Vector3(0,0,0)}
+        />
+      </PresentationControls>
+      {/* <OrbitControls autoRotate={true} enableZoom={false} /> */}
+    </Canvas>
   );
 };
